@@ -17,7 +17,7 @@
 
 
 - LoadSchematic (/ls):  <Name> [Optional: -KeepPos (Keeps -NoState -KeepHealth -SetOwner -SetGroup, Input any Steamid64 to set owner to it]. 
-  -  KeepPos loads the schematic in at the saved position inside of the dat file
+  - KeepPos loads the schematic in at the saved position inside of the dat file
   - KeepHealth keeps the saved health
   - SetOwner sets Owner to you
   -SetGroup sets group to you
