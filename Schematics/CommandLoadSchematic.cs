@@ -5,6 +5,7 @@ using Rocket.API;
 using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
 using SDG.Unturned;
+using Steamworks;
 using UnityEngine;
 using Logger = Rocket.Core.Logging.Logger;
 
@@ -65,7 +66,12 @@ namespace Pandahut.Schematics
             if (fullcommand.Contains("-setowner"))
                 SpecificSteamid64 = player.CSteamID.m_SteamID;
             if (fullcommand.Contains("-setgroup"))
-                specificgroup = player.Player.quests.groupID.m_SteamID;
+            {
+                // Strange issues if the player has no group, no idea why or how the Group ID got equal to the player's Steamid, but this breaks /checkowner and a few other things
+                // [5/15/2020 4:39:04 PM] [Info] Schematics >> Loading sillysignsandstuff for Oh Wonder with parameters Keep Position: True, Keep Health: False, Keep State: True, Set Group = 76561198138254281 Set Steamid64: 76561198138254281.
+                if (player.Player.quests.groupID != CSteamID.Nil && player.Player.quests.groupID.m_SteamID != player.CSteamID.m_SteamID) 
+                    specificgroup = player.Player.quests.groupID.m_SteamID;
+            }
 
             var match = Schematics.steamid64Regex.Match(fullcommand);
             if (match.Success && ulong.TryParse(match.Value, out var result))
