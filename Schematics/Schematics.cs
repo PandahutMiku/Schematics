@@ -14,7 +14,7 @@ namespace Pandahut.Schematics
 
     public class Schematics : RocketPlugin<SchematicsConfiguration>
     {
-        public static Regex steamid64Regex = new Regex(@"/[0-9]{17}/", RegexOptions.Compiled);
+        public static Regex steamid64Regex = new Regex(@"[0-9]{17}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Schematics Instance;
 
         public static byte PluginVerison = 2;
