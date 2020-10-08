@@ -31,56 +31,60 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>Libs\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>Libs\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="I18N.West, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\Libs\I18N.West.dll</HintPath>
+    <Reference Include="I18N.West">
+      <HintPath>Libs\I18N.West.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\Libs\MySql.Data.dll</HintPath>
+      <HintPath>Libs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Rocket.API">
-      <HintPath>..\lib\Rocket.API.dll</HintPath>
+      <HintPath>Libs\Rocket.API.dll</HintPath>
     </Reference>
     <Reference Include="Rocket.Core">
-      <HintPath>..\lib\Rocket.Core.dll</HintPath>
+      <HintPath>Libs\Rocket.Core.dll</HintPath>
     </Reference>
     <Reference Include="Rocket.Unturned">
-      <HintPath>..\lib\Rocket.Unturned.dll</HintPath>
+      <HintPath>Libs\Rocket.Unturned.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="UnityEngine">
-      <HintPath>..\lib\UnityEngine.dll</HintPath>
+      <HintPath>Libs\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\Libs\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>Libs\UnityEngine.PhysicsModule.dll</HintPath>
       <Aliases>UnityEnginePhysics</Aliases>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandDeleteSchematic.cs" />
-    <Compile Include="CommandSaveSchematic.cs" />
-    <Compile Include="CommandLoadSchematic.cs" />
-    <None Include="CommandUploadSchematic.cs" />
-    <None Include="CommandSelect.cs" />
+    <Compile Include="Commands\CommandDeleteSchematic.cs" />
+    <Compile Include="Commands\CommandSaveSchematic.cs" />
+    <Compile Include="Commands\CommandLoadSchematic.cs" />
+    <None Include="Commands\CommandUploadSchematic.cs" />
+    <None Include="Commands\CommandSelect.cs" />
+    <Compile Include="Helpers\LoadSchematic.cs" />
+    <Compile Include="Helpers\SaveSchematic.cs" />
     <Compile Include="Schematics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchematicsConfiguration.cs" />
     <Compile Include="SchematicsDatabase.cs" />
-    <Compile Include="ViewSchematic.cs" />
+    <Compile Include="Commands\CommandViewSchematic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="lib\" />
+    <Folder Include="Libs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,7 +24,7 @@ namespace Pandahut.Schematics
 
         public List<string> Permissions => new List<string> {"schematic.view"};
 
-        public void Execute(IRocketPlayer caller, string[] command)
+        public async void Execute(IRocketPlayer caller, string[] command)
         {
             var Console = caller is ConsolePlayer;
             if (command == null || command.Length == 0 || string.IsNullOrWhiteSpace(command[0]))
@@ -36,7 +36,7 @@ namespace Pandahut.Schematics
             var name = command[0].Replace(" ", "");
             if (Schematics.Instance.Configuration.Instance.UseDatabase)
             {
-                var Schematic = Schematics.Instance.SchematicsDatabaseManager.GetSchematicByName(name);
+                var Schematic = await Schematics.Instance.SchematicsDatabaseManager.GetSchematicByName(name);
                 if (Schematic == null)
                 {
                     SendMessage(caller, $"Cannot find {name} in Database", Console);

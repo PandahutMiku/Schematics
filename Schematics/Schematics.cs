@@ -42,7 +42,7 @@ namespace Pandahut.Schematics
                             // This is the version, discarded because it's useless to us, but we have to read it to get to the second variable
                             _ = river.readByte();
                             var useDatabase = river.readBoolean();
-                            if (!useDatabase)
+                            if (useDatabase)
                                 file.Delete();
                             river.closeRiver();
                         }
